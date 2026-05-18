@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-DEFAULT_REPO="YOUR_GITHUB_USERNAME/buy-new-mac"
+DEFAULT_REPO="SuicaLondon/buy-new-mac-"
 REPO="${BUY_NEW_MAC_REPO:-$DEFAULT_REPO}"
 BRANCH="${BUY_NEW_MAC_BRANCH:-main}"
 
@@ -10,17 +10,6 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" 2>/dev/null && pwd || prin
 
 if [[ -f "$SCRIPT_DIR/bootstrap.sh" && -x "$SCRIPT_DIR/scripts/all.sh" ]]; then
   exec "$SCRIPT_DIR/scripts/all.sh" "$@"
-fi
-
-if [[ "$REPO" == "$DEFAULT_REPO" ]]; then
-  cat >&2 <<EOF
-Set BUY_NEW_MAC_REPO before running the remote bootstrap.
-
-Example:
-  BUY_NEW_MAC_REPO=your-github-name/buy-new-mac \\
-    /bin/bash -c "\$(curl -fsSL https://raw.githubusercontent.com/your-github-name/buy-new-mac/main/bootstrap.sh)"
-EOF
-  exit 1
 fi
 
 TMP_DIR="$(mktemp -d)"

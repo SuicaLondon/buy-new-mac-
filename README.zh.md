@@ -64,19 +64,25 @@ bash scripts/all.sh --skip js
 
 ## 新 Mac 沒有 Git 的執行方式
 
-把這個 repo 推到 GitHub 後，新 Mac 即使還沒有 Git，也可以先用 `curl` 跑 bootstrap。把 `your-github-name` 換成你的 GitHub username：
+新 Mac 不需要先安裝 Git。這條命令會用 macOS 內建的 `curl` 從 GitHub 下載 `bootstrap.sh`，然後由 `bootstrap.sh` 下載這個 repo 的 `.tar.gz` 壓縮包，再執行 `scripts/all.sh`。
 
 ```bash
-BUY_NEW_MAC_REPO=your-github-name/buy-new-mac \
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/your-github-name/buy-new-mac/main/bootstrap.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/SuicaLondon/buy-new-mac-/main/bootstrap.sh)"
 ```
 
 也可以把參數傳給 `scripts/all.sh`：
 
 ```bash
-BUY_NEW_MAC_REPO=your-github-name/buy-new-mac \
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/your-github-name/buy-new-mac/main/bootstrap.sh)" \
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/SuicaLondon/buy-new-mac-/main/bootstrap.sh)" \
   -- --only main,zsh --dry-run
+```
+
+如果是 fork 或其他 branch，可以覆蓋 repo 或 branch：
+
+```bash
+BUY_NEW_MAC_REPO=your-github-name/buy-new-mac \
+BUY_NEW_MAC_BRANCH=main \
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/your-github-name/buy-new-mac/main/bootstrap.sh)"
 ```
 
 ## 腳本會修改什麼

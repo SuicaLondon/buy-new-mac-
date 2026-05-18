@@ -64,19 +64,25 @@ bash scripts/all.sh --skip js
 
 ## Fresh Mac Without Git
 
-After pushing this repo to GitHub, run the remote bootstrap with your GitHub repo name:
+You do not need Git installed on the new Mac. This command uses the macOS built-in `curl` to download `bootstrap.sh` from GitHub, then `bootstrap.sh` downloads this repo as a `.tar.gz` archive and runs `scripts/all.sh`.
 
 ```bash
-BUY_NEW_MAC_REPO=your-github-name/buy-new-mac \
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/your-github-name/buy-new-mac/main/bootstrap.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/SuicaLondon/buy-new-mac-/main/bootstrap.sh)"
 ```
 
 You can pass options through to `scripts/all.sh`:
 
 ```bash
-BUY_NEW_MAC_REPO=your-github-name/buy-new-mac \
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/your-github-name/buy-new-mac/main/bootstrap.sh)" \
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/SuicaLondon/buy-new-mac-/main/bootstrap.sh)" \
   -- --only main,zsh --dry-run
+```
+
+For a fork or another branch, override the repo or branch:
+
+```bash
+BUY_NEW_MAC_REPO=your-github-name/buy-new-mac \
+BUY_NEW_MAC_BRANCH=main \
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/your-github-name/buy-new-mac/main/bootstrap.sh)"
 ```
 
 ## What The Scripts Change
