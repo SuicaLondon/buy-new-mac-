@@ -94,6 +94,9 @@ main() {
     fi
   done
   log "All requested modules complete."
+  if [[ "$DRY_RUN" != "1" ]]; then
+    log "Open a new terminal, or run: exec zsh -l"
+  fi
 }
 
 main "$@"
