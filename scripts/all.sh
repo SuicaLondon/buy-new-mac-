@@ -87,7 +87,11 @@ main() {
     fi
 
     log "Running module: $module"
-    "$SCRIPT_DIR/$module.sh" "${pass_args[@]}"
+    if [[ ${#pass_args[@]} -gt 0 ]]; then
+      "$SCRIPT_DIR/$module.sh" "${pass_args[@]}"
+    else
+      "$SCRIPT_DIR/$module.sh"
+    fi
   done
   log "All requested modules complete."
 }
