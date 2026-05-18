@@ -67,13 +67,13 @@ bash scripts/all.sh --skip js
 You do not need Git installed on the new Mac. This command uses the macOS built-in `curl` to download `bootstrap.sh` from GitHub, then `bootstrap.sh` downloads this repo as a `.tar.gz` archive and runs `scripts/all.sh`.
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/SuicaLondon/buy-new-mac-/main/bootstrap.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/SuicaLondon/buy-new-mac/main/bootstrap.sh)"
 ```
 
 You can pass options through to `scripts/all.sh`:
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/SuicaLondon/buy-new-mac-/main/bootstrap.sh)" \
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/SuicaLondon/buy-new-mac/main/bootstrap.sh)" \
   -- --only main,zsh --dry-run
 ```
 

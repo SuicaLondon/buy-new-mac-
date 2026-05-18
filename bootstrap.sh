@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-DEFAULT_REPO="SuicaLondon/buy-new-mac-"
+DEFAULT_REPO="SuicaLondon/buy-new-mac"
 REPO="${BUY_NEW_MAC_REPO:-$DEFAULT_REPO}"
 BRANCH="${BUY_NEW_MAC_BRANCH:-main}"
 

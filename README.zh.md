@@ -67,13 +67,13 @@ bash scripts/all.sh --skip js
 新 Mac 不需要先安裝 Git。這條命令會用 macOS 內建的 `curl` 從 GitHub 下載 `bootstrap.sh`，然後由 `bootstrap.sh` 下載這個 repo 的 `.tar.gz` 壓縮包，再執行 `scripts/all.sh`。
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/SuicaLondon/buy-new-mac-/main/bootstrap.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/SuicaLondon/buy-new-mac/main/bootstrap.sh)"
 ```
 
 也可以把參數傳給 `scripts/all.sh`：
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/SuicaLondon/buy-new-mac-/main/bootstrap.sh)" \
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/SuicaLondon/buy-new-mac/main/bootstrap.sh)" \
   -- --only main,zsh --dry-run
 ```
 
